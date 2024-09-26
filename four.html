@@ -1,0 +1,44 @@
+<!-- Electricity Bill Calculator -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>4. Electricity Bill Calculator</h2>
+    <input type="number" id="units" placeholder="Enter units consumed">
+    <button onclick="calculateBill()">Calculate Bill</button>
+    <p id="bill"></p>
+    <script>
+        function calculateBill() {
+            const units = parseFloat(document.getElementById('units').value);
+            let bill = 0;
+
+            if (units <= 200) {
+                bill = units * 1; // 1 per unit for first 200
+            } else if (units <= 500) {
+                bill = 200 * 1 + (units - 200) * 1; // 1 per unit for next 300
+            } else if (units <= 900) {
+                bill = 200 * 1 + 300 * 1 + (units - 500) * 2; // 2 per unit for next 400
+            } else {
+                bill = 200 * 1 + 300 * 1 + 400 * 2 + (units - 900) * 3; // 3 per unit for all above 900
+            }
+
+            document.getElementById('bill').innerText = Your electricity bill is ₹${bill}.;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- Print current day name -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>2. Current Day Name</h2>
+    <button onclick="showDay()">Show Current Day</button>
+    <p id="currentDay"></p>
+    <script>
+        function showDay() {
+            let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let today = new Date();
+            let dayName = days[today.getDay()];
+            document.getElementById('currentDay').innerText = Today is ${dayName}.;
+        }
+
+    </script>
+</body>
+</html>
